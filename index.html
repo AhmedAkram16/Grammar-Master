@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a33">
+  <title>Grammar Master | Practice with purpose</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <button class="brand" type="button" data-action="dashboard" aria-label="Grammar Master dashboard">
+        <span class="brand-mark" aria-hidden="true">G</span>
+        <span>Grammar <b>Master</b></span>
+      </button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-link is-active" type="button" data-action="dashboard">Dashboard</button>
+        <button class="nav-link" type="button" data-action="statistics">Study statistics</button>
+        <button class="nav-link" type="button" data-action="mistakes">Review mistakes</button>
+      </nav>
+      <button class="reset-button" type="button" data-action="reset">Reset progress</button>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section id="dashboard-view" class="view is-visible" aria-labelledby="welcome-title">
+        <div class="hero panel">
+          <div>
+            <p class="eyebrow">YOUR ENGLISH LAB</p>
+            <h1 id="welcome-title">Learn clearly. Write confidently.</h1>
+            <p class="hero-copy">Build strong foundations across the nine grammar topics in your course. Every practice set gives instant learning feedback after you finish.</p>
+            <div class="hero-actions">
+              <button class="button primary" type="button" data-action="random">Start random practice <span aria-hidden="true">→</span></button>
+              <button class="button quiet" type="button" data-action="final">Take final exam</button>
+            </div>
+          </div>
+          <div class="ring-wrap" aria-label="Overall course progress">
+            <div class="progress-ring" id="progress-ring"><span id="overall-progress">0%</span></div>
+            <p>Course progress</p>
+          </div>
+        </div>
+
+        <section class="stat-grid" aria-label="Study statistics">
+          <article class="stat-card"><span class="stat-icon">✓</span><div><span class="stat-label">Questions completed</span><strong id="stat-completed">0</strong></div></article>
+          <article class="stat-card"><span class="stat-icon">★</span><div><span class="stat-label">Overall score</span><strong id="stat-score">—</strong></div></article>
+          <article class="stat-card"><span class="stat-icon success">↑</span><div><span class="stat-label">Correct answers</span><strong id="stat-correct">0</strong></div></article>
+          <article class="stat-card"><span class="stat-icon danger">×</span><div><span class="stat-label">Needs review</span><strong id="stat-incorrect">0</strong></div></article>
+        </section>
+
+        <div class="section-heading">
+          <div><p class="eyebrow">PRACTICE BY TOPIC</p><h2>Your grammar course</h2></div>
+          <p id="bank-count" class="muted"></p>
+        </div>
+        <section id="topic-grid" class="topic-grid" aria-label="Grammar topics"></section>
+
+        <section class="final-cta panel" aria-labelledby="final-title">
+          <div class="final-icon" aria-hidden="true">✦</div>
+          <div><p class="eyebrow">WHEN YOU ARE READY</p><h2 id="final-title">Comprehensive final exam</h2><p>45 mixed questions · 5 from every topic · 45 minutes</p></div>
+          <button class="button primary" type="button" data-action="final">Begin final exam</button>
+        </section>
+      </section>
+
+      <section id="quiz-view" class="view" aria-live="polite">
+        <div class="quiz-topbar panel">
+          <button class="text-button" type="button" data-action="quit">← Exit quiz</button>
+          <div class="quiz-title-wrap"><p class="eyebrow" id="quiz-mode-label">PRACTICE</p><h1 id="quiz-title">Topic practice</h1></div>
+          <div id="timer-box" class="timer hidden" aria-label="Time remaining"><span aria-hidden="true">◷</span> <span id="timer">No timer</span></div>
+        </div>
+        <div class="quiz-layout">
+          <aside class="question-sidebar panel" aria-label="Question navigation">
+            <div class="side-heading"><span>Questions</span><span id="answered-count">0 / 0</span></div>
+            <div id="question-nav" class="question-nav"></div>
+            <div class="legend"><span><i class="legend-current"></i> Current</span><span><i class="legend-answered"></i> Answered</span><span><i class="legend-review"></i> Review</span></div>
+            <button class="button submit-side" type="button" data-action="submit">Submit quiz</button>
+          </aside>
+          <article class="question-panel panel">
+            <div class="question-meta"><span id="question-number">Question 1 of 30</span><span id="format-label" class="pill"></span><span id="difficulty-label" class="pill difficulty"></span></div>
+            <div class="quiz-progress"><span id="quiz-progress-fill"></span></div>
+            <h2 id="question-prompt">Loading question…</h2>
+            <fieldset id="answer-options" class="answer-options"><legend class="sr-only">Answer options</legend></fieldset>
+            <div class="question-actions">
+              <button id="review-button" class="button quiet review-button" type="button" data-action="review">☆ Mark for review</button>
+              <div class="pager"><button id="previous-button" class="button quiet" type="button" data-action="previous">← Previous</button><button id="next-button" class="button primary" type="button" data-action="next">Next →</button></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="results-view" class="view" aria-labelledby="results-title">
+        <div class="results-hero panel">
+          <p class="eyebrow">QUIZ COMPLETE</p><h1 id="results-title">Your results</h1>
+          <div class="score-orb"><strong id="result-percent">0%</strong><span id="result-level">Keep Learning</span></div>
+          <p id="result-summary" class="results-summary"></p>
+          <div class="result-actions"><button id="retry-button" class="button primary" type="button" data-action="retry">Retry incorrect questions</button><button class="button quiet" type="button" data-action="dashboard">Back to dashboard</button></div>
+        </div>
+        <section class="result-stats" aria-label="Quiz results">
+          <article><span>Correct</span><strong id="result-correct">0</strong></article><article><span>Incorrect</span><strong id="result-incorrect">0</strong></article><article><span>Time taken</span><strong id="result-time">0:00</strong></article><article><span>Score</span><strong id="result-score">0 / 0</strong></article>
+        </section>
+        <section class="corrections-section"><div class="section-heading"><div><p class="eyebrow">LEARN FROM EACH ONE</p><h2>Corrections</h2></div><p class="muted">Only missed or unanswered questions are shown.</p></div><div id="corrections" class="corrections"></div></section>
+      </section>
+
+      <section id="statistics-view" class="view" aria-labelledby="stats-title">
+        <div class="section-heading"><div><p class="eyebrow">YOUR LEARNING RECORD</p><h1 id="stats-title">Study statistics</h1></div><button class="button quiet" type="button" data-action="dashboard">Back to dashboard</button></div>
+        <section class="stat-grid" aria-label="Study summary">
+          <article class="stat-card"><span class="stat-icon">✓</span><div><span class="stat-label">All attempts</span><strong id="stats-attempts">0</strong></div></article>
+          <article class="stat-card"><span class="stat-icon">★</span><div><span class="stat-label">Accuracy</span><strong id="stats-accuracy">—</strong></div></article>
+          <article class="stat-card"><span class="stat-icon success">↑</span><div><span class="stat-label">Best result</span><strong id="stats-best">—</strong></div></article>
+          <article class="stat-card"><span class="stat-icon danger">×</span><div><span class="stat-label">Mistakes saved</span><strong id="stats-mistakes">0</strong></div></article>
+        </section>
+        <section class="panel topic-progress-panel"><h2>Topic progress</h2><div id="statistics-topics" class="statistics-topics"></div></section>
+      </section>
+    </main>
+  </div>
+
+  <div id="submission-modal" class="modal-layer hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal panel"><button class="modal-close" type="button" data-action="cancel-submit" aria-label="Close confirmation">×</button><p class="eyebrow">READY TO FINISH?</p><h2 id="modal-title">Submit your quiz?</h2><p id="modal-message">You can still return to questions before submitting.</p><div class="modal-actions"><button class="button quiet" type="button" data-action="cancel-submit">Go back</button><button class="button primary" type="button" data-action="confirm-submit">Submit now</button></div></div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
